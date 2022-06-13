@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Typography, Box, Container, Skeleton } from "@mui/material";
 import BarChart from "../graphs/BarChart";
+import Legend from "../graphs/Legend";
 
 export default function Content() {
   const [data, setData] = React.useState(null);
@@ -37,12 +38,7 @@ export default function Content() {
           {data && !loading ? (
             <>
               <BarChart data={data.keywords} />
-              <div>
-                <Typography sx={{ color: "#00FF00", pb: 1 }}>
-                  Winners
-                </Typography>
-                <Typography sx={{ color: "#8B0000" }}>Losers</Typography>
-              </div>
+              <Legend />
             </>
           ) : (
             <Skeleton variant="rectangular" width="100%" height={400} />

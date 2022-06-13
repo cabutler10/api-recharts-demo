@@ -18,7 +18,7 @@ function CustomizedAxisTick({ x, y, payload }) {
         dy={16}
         textAnchor="end"
         fill="#666"
-        transform="rotate(-35)"
+        transform="rotate(-60)"
       >
         {payload.value}
       </text>
@@ -28,21 +28,42 @@ function CustomizedAxisTick({ x, y, payload }) {
 
 export default function BarChart({ data }) {
   return (
-    <Box sx={{ width: 1000, height: 600 }} data-testid="barChart">
+    <Box
+      sx={{
+        width: 1000,
+        height: 600,
+        overflowX: "scroll",
+        overflowY: "hidden",
+      }}
+      data-testid="barChart"
+    >
       <ResponsiveContainer width="100%" height="100%">
         <ReBarChart width={150} height={40} data={data}>
-          <XAxis dataKey="literal" tick={<CustomizedAxisTick />} height={200} />
-          <YAxis label="Volume" width={200} />
+          <XAxis
+            dataKey="literal"
+            tick={<CustomizedAxisTick />}
+            height={200}
+            interval={0}
+          />
+          <YAxis
+            width={100}
+            label={{
+              value: "Search Volume",
+              angle: -90,
+              position: "insideLeft",
+              fill: " #666",
+            }}
+          />
           <Bar dataKey="searchVolume">
             {data?.map((elem) => (
               <Cell
                 key={`cell-${elem.literal}`}
                 fill={
                   elem.trend === "winner"
-                    ? "#00FF00"
+                    ? "#58D68D"
                     : elem.trend === "loser"
-                    ? "#8B0000"
-                    : "#696969"
+                    ? "#EC7063"
+                    : "#d3d3d3"
                 }
               />
             ))}

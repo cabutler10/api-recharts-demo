@@ -3,8 +3,8 @@ import { Typography, Box } from "@mui/material";
 
 export default function Footer() {
   return (
-    <Box component="footer" sx={{ background: "#FF642D", py: 4 }}>
-      <Typography align="center" sx={{ color: "#fff" }}>
+    <Box component="footer" sx={{ background: "#d3d3d3", py: 1 }}>
+      <Typography align="center" sx={{ fontSize: 12 }}>
         © Alyssa Butler
       </Typography>
     </Box>
