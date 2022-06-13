@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Typography, Box, Container, Skeleton } from "@mui/material";
-import BarChart from "../../graphs/BarChart";
+import BarChart from "../graphs/BarChart";
 
 export default function Content() {
   const [data, setData] = React.useState(null);

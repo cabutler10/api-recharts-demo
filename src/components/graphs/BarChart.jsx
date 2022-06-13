@@ -5,7 +5,6 @@ import {
   Cell,
   XAxis,
   YAxis,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 import { Box } from "@mui/material";
@@ -29,14 +28,13 @@ function CustomizedAxisTick({ x, y, payload }) {
 
 export default function BarChart({ data }) {
   return (
-    <Box sx={{ width: 1000, height: 600 }}>
+    <Box sx={{ width: 1000, height: 600 }} data-testid="barChart">
       <ResponsiveContainer width="100%" height="100%">
         <ReBarChart width={150} height={40} data={data}>
           <XAxis dataKey="literal" tick={<CustomizedAxisTick />} height={200} />
-          <YAxis />
-          <Legend />
+          <YAxis label="Volume" width={200} />
           <Bar dataKey="searchVolume">
-            {data.map((elem) => (
+            {data?.map((elem) => (
               <Cell
                 key={`cell-${elem.literal}`}
                 fill={
